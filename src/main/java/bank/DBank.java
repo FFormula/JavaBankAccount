@@ -6,6 +6,11 @@ public class DBank {
     ArrayList<Client> clients;
     ArrayList<Account> accounts;
 
+    DBank () {
+        clients = new ArrayList<Client>();
+        accounts = new ArrayList<Account>();
+    }
+
     void addClient(Client client) {
         clients.add(client);
     }
@@ -14,10 +19,11 @@ public class DBank {
         accounts.add(account);
     }
 
-    void addAccountToClient(Client client) {
+    String addAccountToClient(Client client) {
         String number = getFreeAccountNumber();
         Account account = new Account(number, client);
         addAccount(account);
+        return number;
     }
 
     private String getFreeAccountNumber() {
